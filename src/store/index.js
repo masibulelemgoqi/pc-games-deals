@@ -7,9 +7,11 @@ export default createStore({
   state: {
     deals: [],
     deal: null,
+    loading: false,
   },
   mutations: {
     GET_DEALS(state, deals) {
+      state.loading = false;
       state.deals = deals;
     },
     async GET_DEAL(state, deal) {
@@ -44,6 +46,7 @@ export default createStore({
           };
         });
       }
+      state.loading = false;
       state.deal = deal;
     },
     DEALS_ON_SALE(state) {
@@ -51,14 +54,19 @@ export default createStore({
         (deal) => deal.salePrice > 0
       );
     },
+    SET_LOADER(state, value) {
+      state.loading = value;
+    },
   },
   actions: {
     getDeals({ commit }, query = null) {
+      commit("SET_LOADER", true);
       getRequest("/deals", query).then((response) => {
         response.length > 0 && commit("GET_DEALS", response);
       });
     },
     getDeal({ commit }, id) {
+      commit("SET_LOADER", true);
       getRequest(`/deals?id=${id}`).then((response) => {
         commit("GET_DEAL", response);
       });
