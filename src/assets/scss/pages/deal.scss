@@ -1,0 +1,120 @@
+.view-deal {
+  padding: 4em;
+  justify-content: space-between;
+  display: flex;
+  .game-deal {
+    width: 55%;
+    .heading {
+      .title {
+        font-size: 26px;
+        font-weight: 600;
+      }
+    }
+    .game-seller {
+      background-color: $color-light-grey-about-game;
+      width: 93%;
+      padding: 1em 0;
+      font-weight: 500;
+      span {
+        padding: 0 1em;
+      }
+    }
+
+    .game-image {
+      width: 93%;
+      height: 500px;
+      margin-top: 1em;
+      background-color: $color-light-grey-about-game;
+      img {
+        height: inherit;
+        width: 100%;
+      }
+    }
+  }
+  .other-deals {
+    width: 40%;
+    .heading {
+      background-color: $color-light-grey-about-game;
+      padding: 1em;
+      span {
+        font-weight: 500;
+      }
+    }
+
+    .other-deals-list {
+      padding-top: 1em;
+      padding-left: 1em;
+      height: 10px;
+      .game-deal {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #e2e2e2;
+        div {
+          .seller {
+            font-weight: 500;
+          }
+          .pricing {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.pricing {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 31.2px;
+  margin-bottom: 1.5em;
+  .deal-price {
+    display: flex;
+    .normal-price {
+      &.line-through {
+        text-decoration: line-through;
+      }
+    }
+    .discount-price {
+      margin-left: 0.6em;
+      color: $color-success;
+    }
+  }
+
+  .amount-saved {
+    font-weight: 400;
+    font-style: italic;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .view-deal {
+    display: flex;
+    flex-direction: column;
+    max-height: 70vh;
+    overflow: auto;
+    padding: 1em;
+    .game-deal {
+      width: 100%;
+      .game-seller {
+        width: 100%;
+      }
+
+      .game-image {
+        width: 100%;
+        height: 50vh;
+      }
+    }
+
+    .other-deals {
+      width: 100%;
+      margin-top: 1em;
+    }
+  }
+}

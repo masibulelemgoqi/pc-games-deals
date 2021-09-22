@@ -1,0 +1,59 @@
+$url: "../../";
+nav {
+  width: 100%;
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  height: 20vh;
+  justify-content: space-between;
+  box-shadow: 8px 10px 15px 10px $color-light-grey-card;
+  border-radius: 20px;
+  & > :first-child {
+    padding-left: 1em;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    img {
+      border-radius: 50%;
+      height: 40px;
+      width: 40px;
+    }
+    span {
+      margin-left: 1em;
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  nav {
+    height: 12vh;
+    .logo {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      img {
+        height: 26px;
+        width: 26px;
+      }
+      span {
+        margin-left: 0.5em;
+        font-size: 15px;
+      }
+    }
+    ul {
+      width: 100%;
+      background-color: $color-white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      bottom: 0;
+      box-shadow: -10px -12px 10px 10px $color-light-grey-card;
+      border-radius: 20px 20px 0 0;
+    }
+  }
+}

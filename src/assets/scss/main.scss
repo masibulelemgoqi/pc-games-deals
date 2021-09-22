@@ -1,7 +1,12 @@
 @import "base/variables";
+@import "base/global";
 @import "base/placeholders";
 @import "base/mixins";
 
 @import "components/buttons";
-@import "components/container";
+// @import "components/container";
+@import "components/navbar";
 @import "components/inlineList";
+
+@import "pages/deals.scss";
+@import "pages/deal.scss";

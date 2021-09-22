@@ -1,0 +1,15 @@
+.button {
+  border: none;
+  padding: 0.5em 1em;
+  &-outline-dark {
+    background-color: transparent;
+    color: $color-dark;
+    border: 1px solid $color-dark;
+    border-radius: 6px;
+    transition: background-color 400ms ease-in-out;
+    &:hover {
+      background-color: $color-dark;
+      color: $color-white;
+    }
+  }
+}
