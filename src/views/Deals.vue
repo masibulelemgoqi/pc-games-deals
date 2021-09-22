@@ -5,7 +5,7 @@
                 Deals
             </div>
             <div class="heading-search">
-                <input type="text" placeholder="Seach deals by name"> <i class="fas fa-search"></i>
+                <input type="text" placeholder="Seach deals by name" v-model="dealTitle"> <i class="fas fa-search" @click="searchDeal"></i>
             </div>
         </div>
         <select name="" id="" class="filters">
@@ -33,6 +33,8 @@ export default {
     setup () {
         const store = useStore()
         const deals = computed(() => store.state.deals)
+        const dealTitle = ref("")
+
         const isChecked = ref(false)
         function getDeals(query = null) {
             store.dispatch('getDeals', query);
@@ -46,10 +48,24 @@ export default {
             }
         })
 
+        watch(dealTitle, () => {
+            if (dealTitle.value.length == 0) {
+                getDeals()
+            } 
+        })
+
+        function searchDeal() {
+            console.log(dealTitle.value);
+            if (dealTitle.value.length > 0) {
+                getDeals({title: dealTitle.value})
+            }
+        }
         getDeals()
         return {
             deals,
-            isChecked
+            isChecked,
+            searchDeal,
+            dealTitle
         }
     }
 }
